@@ -1,6 +1,8 @@
+import "../../App.css";
+
 const DoctorInfo = () => {
   return (
-    <div>
+    <div className="section">
       <h1>DoctorInfo</h1>
     </div>
   );

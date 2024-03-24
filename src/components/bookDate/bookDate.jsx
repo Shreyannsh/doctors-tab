@@ -1,6 +1,8 @@
+import "../../App.css";
+
 const BookDate = () => {
   return (
-    <div>
+    <div className="section">
       <h1>BookDate</h1>
     </div>
   );
