@@ -1,0 +1,67 @@
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.searchBar {
+  height: 32px;
+  border-radius: 5px;
+  width: 90%;
+  font-size: 20px;
+  padding-left: 10px;
+}
+
+.section02 {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 20px 0px;
+}
+
+.doctorsList {
+  overflow-y: scroll;
+  max-height: 300px;
+  padding-left: 5px;
+}
+
+.doctor {
+  display: flex;
+  align-items: center;
+  height: 80px;
+  width: 90%;
+  border-radius: 20px;
+  box-shadow: 0px 2px 2px 3px rgb(0, 0, 0, 0.2);
+  margin-bottom: 20px;
+  padding-left: 10px;
+}
+
+.docInfo {
+  text-align: left;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding-left: 10px;
+}
+
+.profilePic {
+  width: 50px;
+  height: 50px;
+  border-radius: 100%;
+}
+
+.tabPic {
+  width: 60px;
+  height: 60px;
+  border-radius: 100%;
+}
+
+.menuBar {
+  width: 30px;
+  height: 30px;
+}
+
+.username {
+  font-size: 20px;
+}

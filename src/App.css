@@ -9,9 +9,15 @@
   padding: 0px 25px;
 }
 
+.App p {
+  padding: 0px;
+  margin: 0px;
+}
+
 .section {
   border-radius: 20px;
   box-shadow: 0px 2px 2px 3px rgb(0, 0, 0, 0.2);
-  height: 70%;
+  height: 90%;
   width: 100%;
+  padding: 20px 20px;
 }
