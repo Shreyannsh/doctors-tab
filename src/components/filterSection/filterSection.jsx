@@ -4,7 +4,10 @@ import { useDispatch, useSelector } from "react-redux";
 
 export default function Filters(props) {
   const dispatch = useDispatch();
-  const state = useSelector((state) => state);
+
+  const checkBoxValues = useSelector((state) => state.checkBoxValues);
+  const rating = useSelector((state) => state.rating);
+  const price = useSelector((state) => state.price);
 
   if (!props.show) {
     return null;
@@ -33,7 +36,7 @@ export default function Filters(props) {
           max="5000"
           list="values"
           id="price"
-          value={state.price}
+          value={price}
         />
         <datalist id="values">
           <option className="priceValue" value="500" label="500"></option>
@@ -51,7 +54,7 @@ export default function Filters(props) {
             value="Cardiology"
             type="checkbox"
             name="category"
-            checked={state.checkBoxValues.includes("Cardiology")}
+            checked={checkBoxValues.includes("Cardiology")}
           />{" "}
           Cardiology
         </label>
@@ -61,7 +64,7 @@ export default function Filters(props) {
             value="Neurology"
             type="checkbox"
             name="category"
-            checked={state.checkBoxValues.includes("Neurology")}
+            checked={checkBoxValues.includes("Neurology")}
           />{" "}
           Neurology
         </label>
@@ -71,7 +74,7 @@ export default function Filters(props) {
             value="Orthopedics"
             type="checkbox"
             name="category"
-            checked={state.checkBoxValues.includes("Orthopedics")}
+            checked={checkBoxValues.includes("Orthopedics")}
           />{" "}
           Orthopedics
         </label>
@@ -81,7 +84,7 @@ export default function Filters(props) {
             value="Dermatology"
             type="checkbox"
             name="category"
-            checked={state.checkBoxValues.includes("Dermatology")}
+            checked={checkBoxValues.includes("Dermatology")}
           />{" "}
           Dermatology
         </label>
@@ -91,7 +94,7 @@ export default function Filters(props) {
             value="Endocrinology"
             type="checkbox"
             name="category"
-            checked={state.checkBoxValues.includes("Endocrinology")}
+            checked={checkBoxValues.includes("Endocrinology")}
           />{" "}
           Endocrinology
         </label>
@@ -109,7 +112,7 @@ export default function Filters(props) {
             type="radio"
             name="rating"
             value="4"
-            checked={state.rating === "4" ? true : false}
+            checked={rating === "4" ? true : false}
           />{" "}
           4 star & above
         </label>
@@ -121,7 +124,7 @@ export default function Filters(props) {
             type="radio"
             name="rating"
             value="3"
-            checked={state.rating === "3" ? true : false}
+            checked={rating === "3" ? true : false}
           />{" "}
           3 star & above
         </label>
@@ -133,7 +136,7 @@ export default function Filters(props) {
             type="radio"
             name="rating"
             value="2"
-            checked={state.rating === "2" ? true : false}
+            checked={rating === "2" ? true : false}
           />{" "}
           2 star & above
         </label>
@@ -145,7 +148,7 @@ export default function Filters(props) {
             type="radio"
             name="rating"
             value="1"
-            checked={state.rating === "1" ? true : false}
+            checked={rating === "1" ? true : false}
           />{" "}
           1 star & above
         </label>

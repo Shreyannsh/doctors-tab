@@ -68,7 +68,6 @@
 .doctorsList::-webkit-scrollbar-thumb {
   background: #888;
   border-radius: 50px;
-  width: 4px;
 }
 
 .doctorsList::-webkit-scrollbar-thumb:hover {

@@ -73,7 +73,7 @@ const BookDate = () => {
         <p className="subsectionHeading">Select Date</p>
         <div className="bookingList scrollContent">
           {finalDates.map((date, index) => (
-            <div className="bookingDateSection">
+            <div key={index} className="bookingDateSection">
               <div
                 className={
                   selectedDoctor?.bookings?.date?.includes(date[2]) ||
@@ -101,36 +101,40 @@ const BookDate = () => {
               <tr>
                 <td
                   className={
-                    (selectedDoctor.bookings.time === "09:00 AM" ||
-                      booking.time === "09:00 AM") &&
-                    "selectedTime"
+                    selectedDoctor.bookings.time === "09:00 AM" ||
+                    booking.time === "09:00 AM"
+                      ? "selectedTime"
+                      : ""
                   }
                 >
                   09:00 AM
                 </td>
                 <td
                   className={
-                    (selectedDoctor.bookings.time === "10:00 AM" ||
-                      booking.time === "10:00 AM") &&
-                    "selectedTime"
+                    selectedDoctor.bookings.time === "10:00 AM" ||
+                    booking.time === "10:00 AM"
+                      ? "selectedTime"
+                      : ""
                   }
                 >
                   10:00 AM
                 </td>
                 <td
                   className={
-                    (selectedDoctor.bookings.time === "11:00 AM" ||
-                      booking.time === "11:00 AM") &&
-                    "selectedTime"
+                    selectedDoctor.bookings.time === "11:00 AM" ||
+                    booking.time === "11:00 AM"
+                      ? "selectedTime"
+                      : " "
                   }
                 >
                   11:00 AM
                 </td>
                 <td
                   className={
-                    (selectedDoctor.bookings.time === "12:00 PM" ||
-                      booking.time === "12:00 PM") &&
-                    "selectedTime"
+                    selectedDoctor.bookings.time === "12:00 PM" ||
+                    booking.time === "12:00 PM"
+                      ? "selectedTime"
+                      : ""
                   }
                 >
                   12:00 PM
@@ -139,36 +143,40 @@ const BookDate = () => {
               <tr>
                 <td
                   className={
-                    (selectedDoctor.bookings.time === "01:00 PM" ||
-                      booking.time === "01:00 PM") &&
-                    "selectedTime"
+                    selectedDoctor.bookings.time === "01:00 PM" ||
+                    booking.time === "01:00 PM"
+                      ? "selectedTime"
+                      : ""
                   }
                 >
                   01:00 PM
                 </td>
                 <td
                   className={
-                    (selectedDoctor.bookings.time === "02:00 PM" ||
-                      booking.time === "02:00 PM") &&
-                    "selectedTime"
+                    selectedDoctor.bookings.time === "02:00 PM" ||
+                    booking.time === "02:00 PM"
+                      ? "selectedTime"
+                      : ""
                   }
                 >
                   02:00 PM
                 </td>
                 <td
                   className={
-                    (selectedDoctor.bookings.time === "03:00 PM" ||
-                      booking.time === "03:00 PM") &&
-                    "selectedTime"
+                    selectedDoctor.bookings.time === "03:00 PM" ||
+                    booking.time === "03:00 PM"
+                      ? "selectedTime"
+                      : ""
                   }
                 >
                   03:00 PM
                 </td>
                 <td
                   className={
-                    (selectedDoctor.bookings.time === "04:00 PM" ||
-                      booking.time === "04:00 PM") &&
-                    "selectedTime"
+                    selectedDoctor.bookings.time === "04:00 PM" ||
+                    booking.time === "04:00 PM"
+                      ? "selectedTime"
+                      : ""
                   }
                 >
                   04:00 PM
@@ -177,36 +185,40 @@ const BookDate = () => {
               <tr>
                 <td
                   className={
-                    (selectedDoctor.bookings.time === "05:00 PM" ||
-                      booking.time === "05:00 PM") &&
-                    "selectedTime"
+                    selectedDoctor.bookings.time === "05:00 PM" ||
+                    booking.time === "05:00 PM"
+                      ? "selectedTime"
+                      : ""
                   }
                 >
                   05:00 PM
                 </td>
                 <td
                   className={
-                    (selectedDoctor.bookings.time === "06:00 PM" ||
-                      booking.time === "06:00 PM") &&
-                    "selectedTime"
+                    selectedDoctor.bookings.time === "06:00 PM" ||
+                    booking.time === "06:00 PM"
+                      ? "selectedTime"
+                      : ""
                   }
                 >
                   06:00 PM
                 </td>
                 <td
                   className={
-                    (selectedDoctor.bookings.time === "07:00 PM" ||
-                      booking.time === "07:00 PM") &&
-                    "selectedTime"
+                    selectedDoctor.bookings.time === "07:00 PM" ||
+                    booking.time === "07:00 PM"
+                      ? "selectedTime"
+                      : ""
                   }
                 >
                   07:00 PM
                 </td>
                 <td
                   className={
-                    (selectedDoctor.bookings.time === "08:00 PM" ||
-                      booking.time === "08:00 PM") &&
-                    "selectedTime"
+                    selectedDoctor.bookings.time === "08:00 PM" ||
+                    booking.time === "08:00 PM"
+                      ? "selectedTime"
+                      : ""
                   }
                 >
                   08:00 PM

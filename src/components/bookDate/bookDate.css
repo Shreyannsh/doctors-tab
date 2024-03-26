@@ -31,7 +31,6 @@
 .bookingList::-webkit-scrollbar-thumb {
   background: #888;
   border-radius: 50px;
-  height: 4px;
 }
 
 .bookingList::-webkit-scrollbar-thumb:hover {

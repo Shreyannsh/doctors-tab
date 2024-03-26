@@ -12,14 +12,19 @@ const DoctorList = () => {
   const doctorsList = useSelector((state) => state.doctorsList);
   const dispatch = useDispatch();
   const [filterOption, setFilterOption] = useState(false);
-  const state = useSelector((state) => state);
+  const checkBoxValues = useSelector((state) => state.checkBoxValues);
+  const rating = useSelector((state) => state.rating);
+
+  const searchedText = useSelector((state) => state.searchedText);
+
+  const price = useSelector((state) => state.price);
 
   const displayDoctors = () => {
     let doctors = [...doctorsList];
 
-    if (state.checkBoxValues.length > 0) {
+    if (checkBoxValues.length > 0) {
       doctors = [];
-      const items = state.checkBoxValues.map((cbValue) =>
+      const items = checkBoxValues.map((cbValue) =>
         doctorsList.filter((item) => {
           const expertiseList = item.expertise.map(
             (expt, index) => index > 0 && expt[0]
@@ -34,22 +39,18 @@ const DoctorList = () => {
       });
     }
 
-    if (state.rating.length > 0) {
-      doctors = doctors.filter(
-        (item) => Number(item.rating) >= Number(state.rating)
-      );
+    if (rating.length > 0) {
+      doctors = doctors.filter((item) => Number(item.rating) >= Number(rating));
     }
 
-    if (state.searchedText.length > 0) {
+    if (searchedText.length > 0) {
       doctors = doctors.filter((item) =>
-        item.name.toLowerCase().includes(state.searchedText.toLowerCase())
+        item.name.toLowerCase().includes(searchedText.toLowerCase())
       );
     }
 
-    if (state.price > 500) {
-      doctors = doctors.filter(
-        (item) => Number(item.price) <= Number(state.price)
-      );
+    if (price > 500) {
+      doctors = doctors.filter((item) => Number(item.price) <= Number(price));
     }
 
     return doctors;
