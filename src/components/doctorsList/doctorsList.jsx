@@ -10,6 +10,7 @@ import Filters from "../filterSection/filterSection";
 
 const DoctorList = () => {
   const doctorsList = useSelector((state) => state.doctorsList);
+  const selectedDoctor = useSelector((state) => state.selectedDoctor);
   const dispatch = useDispatch();
   const [filterOption, setFilterOption] = useState(false);
   const checkBoxValues = useSelector((state) => state.checkBoxValues);
@@ -99,7 +100,11 @@ const DoctorList = () => {
           display.map((doctor) => (
             <div
               key={doctor.id}
-              className="doctor"
+              className={
+                selectedDoctor === doctor.id
+                  ? "doctor selectedDoctor "
+                  : "doctor"
+              }
               onClick={() =>
                 dispatch({ type: "selectedDoctor", payload: doctor.id })
               }

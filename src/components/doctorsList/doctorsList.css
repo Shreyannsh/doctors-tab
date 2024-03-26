@@ -85,6 +85,15 @@
   padding-left: 10px;
   background: rgba(34, 40, 52, 255);
   color: white;
+  cursor: pointer;
+}
+
+.doctor:hover {
+  box-shadow: 0px 2px 2px 3px rgba(202, 201, 201, 0.2);
+}
+
+.selectedDoctor {
+  box-shadow: 0px 2px 2px 3px rgba(202, 201, 201, 0.2);
 }
 
 .docInfo {
