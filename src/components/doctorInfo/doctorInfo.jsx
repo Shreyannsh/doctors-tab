@@ -77,7 +77,7 @@ const DoctorInfo = () => {
       />
 
       <div className="aboutSection">
-        <header className="heading">About</header>
+        <header className="aboutHeading">About</header>
         <p className="aboutText">{selectedDoctor.about}</p>
       </div>
     </div>

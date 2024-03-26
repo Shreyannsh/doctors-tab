@@ -50,6 +50,9 @@
   background-color: var(--fadedBlack);
   border-radius: 10px;
 }
+.aboutHeading {
+  font-size: 20px;
+}
 
 .aboutText {
   font-size: 14px;
