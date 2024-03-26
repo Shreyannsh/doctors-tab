@@ -1,3 +1,5 @@
+import { doctorsList } from "../doctorData";
+
 const initialState = {
   selectedDoctor: 1,
   productList: [],
@@ -5,64 +7,12 @@ const initialState = {
   price: "500",
   searchedText: "",
   rating: "",
-
-  doctorsList: [
-    {
-      id: 1,
-      name: "Dr. Smith",
-      price: 1500,
-      rating: 3.5,
-      expertise: [
-        ["expertise", "value"],
-        ["Cardiology", 33],
-        ["Neurology", 33],
-      ],
-      bookings: "",
-      profilePicture:
-        "https://media.istockphoto.com/id/1293904378/photo/female-doctor-stock-photo.jpg?s=1024x1024&w=is&k=20&c=ufTqlQQwHgHtweancNrmW_E01EUxMUCgjmrf5MXytFA=",
-      about:
-        "Dr. Smith is a highly experienced cardiologist and neurologist with over 15 years of practice. ",
-    },
-    {
-      id: 2,
-      name: "Dr. Johnson",
-      price: 1000,
-      rating: 4.0,
-      expertise: [
-        ["expertise", "value"],
-        ["Orthopedics", 50],
-        ["Dermatology", 50],
-      ],
-      bookings: "",
-      profilePicture:
-        "https://media.istockphoto.com/id/1293904378/photo/female-doctor-stock-photo.jpg?s=1024x1024&w=is&k=20&c=ufTqlQQwHgHtweancNrmW_E01EUxMUCgjmrf5MXytFA=",
-      about:
-        "Dr. Johnson is a renowned orthopedic surgeon and dermatologist known for his expertise in treating musculoskeletal injuries and skin conditions. ",
-    },
-    {
-      id: 3,
-      name: "Dr. Williams",
-      price: 2000,
-      rating: 5.0,
-      expertise: [
-        ["expertise", "value"],
-        ["Gynecology", 40],
-        ["Pediatrics", 30],
-        ["Endocrinology", 30],
-      ],
-      bookings: "",
-      profilePicture:
-        "https://media.istockphoto.com/id/1293904378/photo/female-doctor-stock-photo.jpg?s=1024x1024&w=is&k=20&c=ufTqlQQwHgHtweancNrmW_E01EUxMUCgjmrf5MXytFA=",
-      about:
-        "Dr. Williams is a highly respected gynecologist, pediatrician, and endocrinologist dedicated to providing comprehensive care to women and children. ",
-    },
-  ],
+  doctorsList: doctorsList,
 };
 
 export const doctorReducer = (state = initialState, action) => {
   switch (action.type) {
     case "selectedDoctor":
-      console.log(action.payload);
       return { ...state, selectedDoctor: action.payload };
 
     case "addBooking":
@@ -71,7 +21,7 @@ export const doctorReducer = (state = initialState, action) => {
           ? { ...doctor, bookings: action.booking }
           : doctor
       );
-      console.log(action);
+
       return { ...state, doctorsList: bookingAdded };
 
     //filter mechanism

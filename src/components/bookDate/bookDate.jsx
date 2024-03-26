@@ -1,15 +1,15 @@
-import { useDispatch, useSelector } from "react-redux";
 import "../../App.css";
 import "./bookDate.css";
+
 import { toast } from "react-toastify";
 import { useEffect, useState } from "react";
 import { MdOutlineDateRange } from "react-icons/md";
+import { useDispatch, useSelector } from "react-redux";
 
 const BookDate = () => {
   const dispatch = useDispatch();
   const [dates, setDates] = useState([]);
   const [booking, setBooking] = useState({ date: "", time: "" });
-  //console.log(booking);
 
   const selectedDoctorId = useSelector((state) => state.selectedDoctor);
   const doctorsList = useSelector((state) => state.doctorsList);
@@ -17,16 +17,14 @@ const BookDate = () => {
   const selectedDoctor = doctorsList.find(
     (doctor) => doctor.id === selectedDoctorId
   );
-  console.log(selectedDoctor);
+
   const bookingDate = dates.map((date) => date.split(" "));
-  // console.log(bookingDate);
 
   const finalDates = bookingDate.filter(
     (date) => date[0] !== "Sat" && date[0] !== "Sun"
   );
 
   const handleTime = (event) => {
-    // console.log(event);
     setBooking({ ...booking, time: event.target.textContent });
   };
 

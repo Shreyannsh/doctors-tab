@@ -1,21 +1,17 @@
-import { useDispatch, useSelector } from "react-redux";
 import "../../App.css";
 import "./doctorsList.css";
-import { IoSearchSharp } from "react-icons/io5";
 
-import "../../assets/doctor.png";
-
-import { GiHamburgerMenu } from "react-icons/gi";
-import Filters from "../filterSection/filterSection";
 import { useState } from "react";
+import { IoSearchSharp } from "react-icons/io5";
+import { GiHamburgerMenu } from "react-icons/gi";
+import { useDispatch, useSelector } from "react-redux";
+
+import Filters from "../filterSection/filterSection";
 
 const DoctorList = () => {
   const doctorsList = useSelector((state) => state.doctorsList);
   const dispatch = useDispatch();
   const [filterOption, setFilterOption] = useState(false);
-
-  console.log(doctorsList);
-
   const state = useSelector((state) => state);
 
   const displayDoctors = () => {
@@ -98,30 +94,34 @@ const DoctorList = () => {
         </span>
       </div>
       <div className="doctorsList  scrollContent">
-        {display.map((doctor) => (
-          <div
-            key={doctor.id}
-            className="doctor"
-            onClick={() =>
-              dispatch({ type: "selectedDoctor", payload: doctor.id })
-            }
-          >
-            <img
-              className="tabPic"
-              src="https://media.istockphoto.com/id/1293904378/photo/female-doctor-stock-photo.jpg?s=1024x1024&w=is&k=20&c=ufTqlQQwHgHtweancNrmW_E01EUxMUCgjmrf5MXytFA="
-            />
-            <div className="docInfo">
-              <p>
-                <b>{doctor.name}</b>
-              </p>
-              <p>
-                {doctor.expertise.map(
-                  (expt, index) => index > 0 && `${expt[0]} `
-                )}
-              </p>
+        {display.length > 0 ? (
+          display.map((doctor) => (
+            <div
+              key={doctor.id}
+              className="doctor"
+              onClick={() =>
+                dispatch({ type: "selectedDoctor", payload: doctor.id })
+              }
+            >
+              <img
+                className="tabPic"
+                src="https://media.istockphoto.com/id/1293904378/photo/female-doctor-stock-photo.jpg?s=1024x1024&w=is&k=20&c=ufTqlQQwHgHtweancNrmW_E01EUxMUCgjmrf5MXytFA="
+              />
+              <div className="docInfo">
+                <p>
+                  <b>{doctor.name}</b>
+                </p>
+                <p>
+                  {doctor.expertise.map(
+                    (expt, index) => index > 0 && `${expt[0]} `
+                  )}
+                </p>
+              </div>
             </div>
-          </div>
-        ))}
+          ))
+        ) : (
+          <p className="message">No doctor available</p>
+        )}
       </div>
     </div>
   );

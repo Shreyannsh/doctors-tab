@@ -32,7 +32,8 @@
 
 .filterBtn {
   border-radius: 5px;
-  padding: 5px 20px;
+  height: 25px;
+  width: 60px;
   background-color: white;
   color: var(--blue);
   cursor: pointer;
@@ -51,29 +52,27 @@
 
 .doctorsList {
   overflow-y: scroll;
-  max-height: 300px;
+  max-height: 350px;
   padding-left: 5px;
 }
 
-/* For WebKit-based browsers (e.g., Chrome, Safari) */
-/* Note: This is for macOS */
 .doctorsList::-webkit-scrollbar {
-  width: 4px; /* Width of the scrollbar */
+  width: 4px;
 }
 
 .doctorsList::-webkit-scrollbar-track {
-  background: transparent; /* Color of the scrollbar track */
+  background: transparent;
   border-radius: 10px;
 }
 
 .doctorsList::-webkit-scrollbar-thumb {
-  background: #888; /* Color of the scrollbar thumb */
-  border-radius: 50px; /* Border radius of the scrollbar thumb */
+  background: #888;
+  border-radius: 50px;
   width: 4px;
 }
 
 .doctorsList::-webkit-scrollbar-thumb:hover {
-  background: #555; /* Color of the scrollbar thumb on hover */
+  background: #555;
 }
 
 .doctor {
