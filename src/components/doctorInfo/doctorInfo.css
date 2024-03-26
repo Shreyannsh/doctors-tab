@@ -2,4 +2,57 @@
   display: flex;
   align-items: center;
   justify-content: center;
+  background-color: var(--blue);
+  border-bottom-left-radius: 10px;
+  border-bottom-right-radius: 10px;
+  padding: 5px 20px;
+  height: 40px;
+  text-align: center;
+  gap: 15px;
+  font-size: 16px;
+}
+
+.profileImage {
+  height: 180px;
+  width: 180px;
+  border-top-left-radius: 20px;
+  border-top-right-radius: 20px;
+}
+
+.infoSection {
+  margin-bottom: 20px;
+}
+
+.nameSection {
+  background-color: var(--black);
+  border-top-left-radius: 20px;
+  border-top-right-radius: 20px;
+  padding: 5px 20px;
+  height: 40px;
+  text-align: center;
+  gap: 30px;
+}
+
+.name {
+  font-size: 20px;
+  font-weight: bolder;
+}
+
+.checklist {
+  font-size: 16px;
+  padding: 5px 20px;
+  background-color: var(--fadedBlack);
+  border-radius: 5px;
+}
+
+.aboutSection {
+  padding: 5px 20px;
+  background-color: var(--fadedBlack);
+  border-radius: 10px;
+}
+
+.aboutText {
+  font-size: 14px;
+  text-align: left;
+  color: grey;
 }

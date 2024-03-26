@@ -9,6 +9,13 @@
   padding: 0px 25px;
 }
 
+:root {
+  color: white;
+  --blue: rgba(15, 84, 214, 1);
+  --black: rgba(29, 28, 41, 1);
+  --fadedBlack: rgba(34, 40, 52, 255);
+}
+
 .App p {
   padding: 0px;
   margin: 0px;
@@ -18,6 +25,23 @@
   border-radius: 20px;
   box-shadow: 0px 2px 2px 3px rgb(0, 0, 0, 0.2);
   height: 90%;
-  width: 100%;
+  width: 400px;
   padding: 20px 20px;
+  position: relative;
+  background: linear-gradient(
+    180deg,
+    rgba(15, 84, 214, 1) 10%,
+    rgba(29, 28, 41, 1) 70%
+  );
+}
+
+.heading {
+  font-size: 20px;
+  margin-top: 5px;
+}
+
+.horizontal {
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }

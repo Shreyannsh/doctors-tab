@@ -1,42 +1,48 @@
 const initialState = {
   selectedDoctor: 1,
+  productList: [],
+  checkBoxValues: [],
+  price: "500",
+  searchedText: "",
+  rating: "",
+
   doctorsList: [
     {
       id: 1,
       name: "Dr. Smith",
-      consultFee: 1500,
+      price: 1500,
       rating: 3.5,
       expertise: [
         ["expertise", "value"],
         ["Cardiology", 33],
         ["Neurology", 33],
       ],
-      bookings: [],
+      bookings: "",
       profilePicture:
-        "https://www.google.com/url?sa=i&url=https%3A%2F%2Fin.pinterest.com%2Fpin%2F764556474235796928%2F&psig=AOvVaw2nSNNaSdUPhEIXbo_xkgQv&ust=1711299711415000&source=images&cd=vfe&opi=89978449&ved=0CBIQjRxqFwoTCIDtj67uioUDFQAAAAAdAAAAABAE",
+        "https://media.istockphoto.com/id/1293904378/photo/female-doctor-stock-photo.jpg?s=1024x1024&w=is&k=20&c=ufTqlQQwHgHtweancNrmW_E01EUxMUCgjmrf5MXytFA=",
       about:
-        "Dr. Smith is a highly experienced cardiologist and neurologist with over 15 years of practice. He specializes in treating cardiovascular diseases and neurological disorders with a patient-centered approach.",
+        "Dr. Smith is a highly experienced cardiologist and neurologist with over 15 years of practice. ",
     },
     {
       id: 2,
       name: "Dr. Johnson",
-      consultFee: 1600,
+      price: 1000,
       rating: 4.0,
       expertise: [
         ["expertise", "value"],
         ["Orthopedics", 50],
         ["Dermatology", 50],
       ],
-      bookings: [],
+      bookings: "",
       profilePicture:
-        "https://www.google.com/url?sa=i&url=https%3A%2F%2Fin.pinterest.com%2Fpin%2F764556474235796928%2F&psig=AOvVaw2nSNNaSdUPhEIXbo_xkgQv&ust=1711299711415000&source=images&cd=vfe&opi=89978449&ved=0CBIQjRxqFwoTCIDtj67uioUDFQAAAAAdAAAAABAE",
+        "https://media.istockphoto.com/id/1293904378/photo/female-doctor-stock-photo.jpg?s=1024x1024&w=is&k=20&c=ufTqlQQwHgHtweancNrmW_E01EUxMUCgjmrf5MXytFA=",
       about:
-        "Dr. Johnson is a renowned orthopedic surgeon and dermatologist known for his expertise in treating musculoskeletal injuries and skin conditions. With advanced training and a compassionate approach, he provides comprehensive care to his patients.",
+        "Dr. Johnson is a renowned orthopedic surgeon and dermatologist known for his expertise in treating musculoskeletal injuries and skin conditions. ",
     },
     {
       id: 3,
       name: "Dr. Williams",
-      consultFee: 1500,
+      price: 2000,
       rating: 5.0,
       expertise: [
         ["expertise", "value"],
@@ -44,11 +50,11 @@ const initialState = {
         ["Pediatrics", 30],
         ["Endocrinology", 30],
       ],
-      bookings: [],
+      bookings: "",
       profilePicture:
-        "https://www.google.com/url?sa=i&url=https%3A%2F%2Fin.pinterest.com%2Fpin%2F764556474235796928%2F&psig=AOvVaw2nSNNaSdUPhEIXbo_xkgQv&ust=1711299711415000&source=images&cd=vfe&opi=89978449&ved=0CBIQjRxqFwoTCIDtj67uioUDFQAAAAAdAAAAABAE",
+        "https://media.istockphoto.com/id/1293904378/photo/female-doctor-stock-photo.jpg?s=1024x1024&w=is&k=20&c=ufTqlQQwHgHtweancNrmW_E01EUxMUCgjmrf5MXytFA=",
       about:
-        "Dr. Williams is a highly respected gynecologist, pediatrician, and endocrinologist dedicated to providing comprehensive care to women and children. With a focus on preventive health and patient education, she strives to empower her patients to lead healthy lives.",
+        "Dr. Williams is a highly respected gynecologist, pediatrician, and endocrinologist dedicated to providing comprehensive care to women and children. ",
     },
   ],
 };
@@ -56,8 +62,80 @@ const initialState = {
 export const doctorReducer = (state = initialState, action) => {
   switch (action.type) {
     case "selectedDoctor":
-      console.log("hi");
+      console.log(action.payload);
       return { ...state, selectedDoctor: action.payload };
+
+    case "addBooking":
+      const bookingAdded = state.doctorsList.map((doctor) =>
+        doctor.id === state.selectedDoctor
+          ? { ...doctor, bookings: action.booking }
+          : doctor
+      );
+      console.log(action);
+      return { ...state, doctorsList: bookingAdded };
+
+    //filter mechanism
+
+    case "productSearch": {
+      return {
+        ...state,
+        searchedText: action.payload,
+      };
+    }
+
+    case "filterByPrice": {
+      return {
+        ...state,
+        price: action.payload,
+      };
+    }
+
+    case "filterByRating": {
+      return {
+        ...state,
+        rating: action.payload,
+      };
+    }
+
+    case "filterBySort": {
+      return {
+        ...state,
+        sort: action.payload,
+      };
+    }
+
+    case "checkBoxValue": {
+      return {
+        ...state,
+        checkBoxValues: action.payload.target.checked
+          ? [...state.checkBoxValues, action.payload.target.value]
+          : state.checkBoxValues.filter(
+              (cbv) => cbv !== action.payload.target.value
+            ),
+      };
+    }
+
+    case "setSingleCategory": {
+      return {
+        ...state,
+        price: "500",
+        searchedText: "",
+        rating: "",
+        sort: "",
+        checkBoxValues: [action.payload],
+      };
+    }
+
+    case "clearFilter": {
+      return {
+        ...state,
+        price: "500",
+        searchedText: "",
+        rating: "",
+        sort: "",
+        checkBoxValues: [],
+      };
+    }
     default:
       return state;
   }

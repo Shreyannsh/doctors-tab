@@ -1,0 +1,76 @@
+.filters {
+  margin-top: 9rem;
+  padding: 2rem 2rem 0.3rem 1rem;
+  display: flex;
+  flex-direction: column;
+  text-align: left;
+  background-color: rgb(99, 93, 93, 1);
+  border-radius: 10px;
+  font-size: 20px;
+  position: absolute;
+  right: 10px;
+}
+
+.filters p {
+  font-size: 15px;
+}
+
+.filters label {
+  font-size: 14px;
+}
+
+.filtersHeading {
+  font-size: medium;
+  margin-top: -1rem;
+}
+
+.filters-price {
+  margin-top: -1rem;
+  margin-bottom: 0.5rem;
+}
+.filters-price input {
+  size: 1rem;
+}
+
+.filters-category {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 0.5rem;
+}
+.filters-rating {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 0.5rem;
+}
+
+datalist {
+  display: flex;
+  justify-content: space-between;
+  width: 200px;
+}
+
+option {
+  padding: 0px;
+}
+
+input[type="range"] {
+  width: 200px;
+  margin: 0;
+}
+
+.clear-btn {
+  font-size: 14px;
+  align-self: flex-end;
+  margin-top: -2.2rem;
+  margin-bottom: 2rem;
+  margin-right: -20px;
+  cursor: pointer;
+}
+
+.clear-btn:hover {
+  text-decoration: underline;
+}
+
+.priceValue {
+  font-size: 14px;
+}

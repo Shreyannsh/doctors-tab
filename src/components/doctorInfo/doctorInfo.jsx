@@ -59,8 +59,23 @@ const DoctorInfo = () => {
   const data = selectedDoctor.expertise;
 
   const options = {
-    legend: "right",
-    height: 200,
+    legend: {
+      poisiton: "right",
+      alignment: "center",
+      paddingLeft: "30px",
+      textStyle: { color: "white", fontSize: 14 },
+    },
+    height: 80,
+    backgroundColor: "#242834",
+    borderRadius: "10px",
+    chartArea: {
+      left: 0,
+      right: 50,
+      top: 5,
+      bottom: 5,
+      width: "30%",
+      height: "35%",
+    },
   };
 
   // useEffect(() => {
@@ -114,18 +129,31 @@ const DoctorInfo = () => {
 
   return (
     <div className="section">
-      <h1>Profile</h1>
-      <p>{selectedDoctor.name}</p>
-      <div className="ratingSection">
-        {selectedDoctor.rating}{" "}
-        <Rating
-          style={{ maxWidth: 150 }}
-          readOnly
-          value={selectedDoctor.rating}
-          // onChange={setRating}
-          itemStyles={myStyles}
-        />
+      <header className="heading">Profile</header>
+      <img
+        className="profileImage"
+        src={selectedDoctor.profilePicture}
+        alt=""
+      />
+      <div className="infoSection">
+        <div className="horizontal nameSection">
+          <span className="name">{selectedDoctor.name}</span>
+          <span className="checklist">Checklist</span>
+        </div>
+
+        <div className="horizontal ratingSection">
+          {selectedDoctor.rating}{" "}
+          <Rating
+            style={{ maxWidth: 100 }}
+            readOnly
+            value={selectedDoctor.rating}
+            // onChange={setRating}
+            itemStyles={myStyles}
+          />
+          <p>215 reviews</p>
+        </div>
       </div>
+
       {/* <ReactEcharts
         echarts={echarts}
         option={options}
@@ -141,16 +169,13 @@ const DoctorInfo = () => {
         data={data}
         options={options}
         width={"100%"}
-        height={"400px"}
+        height={"100px"}
       />
 
-      <div>
-        <p>About</p>
-        {selectedDoctor.about}
+      <div className="aboutSection">
+        <header className="heading">About</header>
+        <p className="aboutText">{selectedDoctor.about}</p>
       </div>
-
-      {/* <div id="myChart" style={{ width: "100%", height: "100%" }}></div> */}
-      {/* <img src="https://media.istockphoto.com/id/1293904378/photo/female-doctor-stock-photo.jpg?s=1024x1024&w=is&k=20&c=ufTqlQQwHgHtweancNrmW_E01EUxMUCgjmrf5MXytFA=" /> */}
     </div>
   );
 };
